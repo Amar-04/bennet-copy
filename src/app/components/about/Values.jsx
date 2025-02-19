@@ -3,199 +3,123 @@
 import { motion } from "framer-motion";
 
 const Values = () => {
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  const lineVariant = {
-    hidden: { width: 0 },
-    visible: {
-      width: "100%",
-      transition: { duration: 0.8, ease: "easeInOut" },
+  const coreValues = [
+    {
+      title: "Integrity",
+      description:
+        "We uphold the highest ethical standards in every aspect of our work, ensuring transparency and honesty.",
     },
-  };
+    {
+      title: "Innovation",
+      description:
+        "We embrace creativity and forward-thinking, driving continuous improvement in our pharmaceutical solutions to meet evolving healthcare challenges.",
+    },
+    {
+      title: "Collaboration",
+      description:
+        "Teamwork and partnership are at the heart of our operations, as we work together with healthcare professionals and communities to achieve shared goals.",
+    },
+    {
+      title: "Excellence",
+      description:
+        "Our commitment to excellence drives us to deliver high-quality products and services that consistently exceed expectations, setting new standards in the industry.",
+    },
+    {
+      title: "Empowerment",
+      description:
+        "We believe in empowering individuals—both our employees and our customers—by providing the tools and resources necessary for better health and well-being.",
+    },
+  ];
 
   return (
-    <section className="mt-20">
-      <div className="w-full max-w-[1440px] mx-auto px-4">
+    // <section className="px-4 md:px-16 mt-20 bg-[#DFEAA580]">
+    <section className="container px-4 md:px-8 mt-20 bg-[#DFEAA580]">
+      <div className="flex flex-col space-y-8">
         <motion.div
-          className="bg-black text-white flex flex-col md:flex-row items-center justify-between p-8 md:p-12 rounded-3xl gap-6 md:gap-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          className="md:w-9/12 mx-auto bg-black text-white flex flex-col md:flex-row items-center justify-between p-6 md:p-8 rounded-xl md:rounded-3xl -mt-10 md:-mt-20"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
         >
-          <h2 className="text-2xl md:text-3xl font-bold">
-            We're more than just a{" "}
-            <span className="text-[#AECA1D]">healthcare</span> company
+          <h2 className="text-xl md:text-2xl font-bold">
+            We're more than just a
+            <span className="text-[#AECA1DE5]"> healthcare</span> company
           </h2>
-          <p className="md:text-xl text-gray-200 md:w-1/2">
-            We're a community of dedicated professionals committed to creating a
+          <p className="md:text-lg md:w-1/2">
+            We’re a community of dedicated professionals committed to creating a
             healthier future for everyone.
           </p>
         </motion.div>
+
+        <div className="flex items-center justify-between">
+          <motion.h1
+            className="text-3xl md:text-5xl font-bold"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            Core <br /> Values
+          </motion.h1>
+          <hr className="w-1/2 h-1 -mr-4 md:-mr-8 bg-black border-0" />
+        </div>
+
+        <motion.p
+          className="md:text-lg max-w-2xl"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          At Bennet, our core values guide our mission and shape our culture,
+          ensuring we deliver exceptional healthcare solutions.
+        </motion.p>
       </div>
 
-      <div className="container bg-[#DFEAA580] mt-20 py-16">
-        <div className="w-full max-w-[1440px] mx-auto px-4">
-          <div className="flex flex-col gap-8 mb-16">
-            <div className="flex items-center gap-8">
-              <motion.h2
-                className="text-5xl md:text-7xl font-bold"
-                initial="hidden"
-                whileInView="visible"
-                variants={fadeInUp}
-                viewport={{ once: true }}
-              >
-                CORE
-                <br />
-                VALUES
-              </motion.h2>
+      <div className="relative py-16">
+        <div className="absolute inset-0 flex justify-center items-center z-0">
+          <div className="md:h-[600px] md:w-[600px] mr-80  rounded-full border border-gray-300 absolute"></div>
+          <div className="md:h-[600px] md:w-[600px] ml-80 rounded-full border border-gray-300 absolute"></div>
+          <div className="md:h-[600px] md:w-[600px] rounded-full border border-gray-300 absolute"></div>
+          <div className="md:h-[500px] md:w-[500px] rounded-full border border-gray-300 absolute"></div>
+        </div>
+
+        <div className="relative flex flex-col items-center">
+          <motion.div
+            className="grid md:grid-cols-2 gap-4 md:gap-36 w-full md:max-w-4xl z-10"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            {coreValues.slice(0, 4).map((value, index) => (
               <motion.div
-                className="h-[2px] bg-black flex-grow"
-                initial="hidden"
-                whileInView="visible"
-                variants={lineVariant}
-                viewport={{ once: true }}
-              />
-            </div>
-
-            <motion.p
-              className="text-xl md:text-2xl text-gray-700 max-w-3xl"
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              At Bennet, our core values guide our mission and shape our
-              culture, ensuring we deliver exceptional healthcare solutions.
-            </motion.p>
-          </div>
-
-          <div className="relative min-h-[800px] md:min-h-[600px]">
-            {/* Circle Background Pattern */}
-            <div className="absolute inset-0 z-0">
-              <svg className="w-full h-full" viewBox="0 0 800 800">
-                <circle
-                  cx="400"
-                  cy="400"
-                  r="300"
-                  fill="none"
-                  stroke="#E5E7EB"
-                  strokeWidth="1"
-                />
-                <circle
-                  cx="250"
-                  cy="400"
-                  r="300"
-                  fill="none"
-                  stroke="#E5E7EB"
-                  strokeWidth="1"
-                />
-                <circle
-                  cx="550"
-                  cy="400"
-                  r="300"
-                  fill="none"
-                  stroke="#E5E7EB"
-                  strokeWidth="1"
-                />
-              </svg>
-            </div>
-
-            {/* Value Cards */}
-            <div className="relative z-10 grid gap-8">
-              {/* Top Card */}
-              <motion.div
-                className="bg-white p-6 rounded-2xl shadow-lg max-w-sm mx-auto"
-                initial={{ opacity: 0, y: 20 }}
+                key={index}
+                className="p-6 bg-white shadow-lg rounded-lg text-center"
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
               >
-                <h3 className="text-2xl font-bold text-[#AECA1D] mb-3">
-                  Integrity
+                <h3 className="text-xl md:text-3xl font-semibold text-[#AECA1D] mb-4">
+                  {value.title}
                 </h3>
-                <p className="text-gray-700">
-                  We uphold the highest ethical standards in every aspect of our
-                  work, ensuring transparency and honesty.
-                </p>
+                <p className="text-gray-600">{value.description}</p>
               </motion.div>
+            ))}
+          </motion.div>
 
-              {/* Middle Row */}
-              <div className="flex justify-between gap-8">
-                <motion.div
-                  className="bg-white p-6 rounded-2xl shadow-lg max-w-sm"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5 }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <h3 className="text-2xl font-bold text-[#AECA1D] mb-3">
-                    Collaboration
-                  </h3>
-                  <p className="text-gray-700">
-                    Teamwork and partnership are at the heart of our operations,
-                    as we work together with healthcare professionals and
-                    communities to achieve shared goals.
-                  </p>
-                </motion.div>
-
-                {/* Center Card - Empowerment */}
-                <motion.div
-                  className="bg-white p-6 rounded-2xl shadow-lg max-w-sm"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <h3 className="text-2xl font-bold text-[#AECA1D] mb-3">
-                    Empowerment
-                  </h3>
-                  <p className="text-gray-700">
-                    We believe in empowering individuals—both our employees and
-                    our customers—by providing the tools and resources necessary
-                    for better health and well-being.
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  className="bg-white p-6 rounded-2xl shadow-lg max-w-sm"
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5 }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <h3 className="text-2xl font-bold text-[#AECA1D] mb-3">
-                    Excellence
-                  </h3>
-                  <p className="text-gray-700">
-                    Our commitment to excellence drives us to deliver
-                    high-quality products and services that consistently exceed
-                    expectations, setting new standards in the industry.
-                  </p>
-                </motion.div>
-              </div>
-
-              {/* Bottom Card */}
-              <motion.div
-                className="bg-white p-6 rounded-2xl shadow-lg max-w-sm mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <h3 className="text-2xl font-bold text-[#AECA1D] mb-3">
-                  Innovation
-                </h3>
-                <p className="text-gray-700">
-                  We embrace creativity and forward-thinking, driving continuous
-                  improvement in our pharmaceutical solutions to meet evolving
-                  healthcare challenges.
-                </p>
-              </motion.div>
-            </div>
-          </div>
+          <motion.div
+            className="md:absolute w-[300px] md:w-[500px] md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 bg-white shadow-lg rounded-lg p-6 mt-4 md:mt-0 md:p-8 z-20 text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <h3 className="text-xl md:text-3xl font-semibold text-[#AECA1D] mb-4">
+              Empowerment
+            </h3>
+            <p className="text-gray-600">
+              We believe in empowering individuals—both our employees and our
+              customers—by providing the tools and resources necessary for
+              better health and well-being.
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>
